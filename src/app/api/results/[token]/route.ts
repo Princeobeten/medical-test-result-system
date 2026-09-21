@@ -15,7 +15,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ tok
 
   const test = await TestRecord.findOne({ accessToken: token, status: "sent" })
     .populate("patient")
-    .populate("testType");
+    .populate("testType")
+    .populate("conductedBy", "name");
 
   if (!test) {
     return NextResponse.json({ error: "This result link is invalid or has expired" }, { status: 404 });
