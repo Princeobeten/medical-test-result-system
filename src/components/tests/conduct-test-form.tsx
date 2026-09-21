@@ -130,7 +130,11 @@ export function ConductTestForm() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>Test Type</Label>
-              <Select value={testTypeId} onValueChange={(v) => setTestTypeId(v ?? "")}>
+              <Select
+                items={Object.fromEntries(testTypes.map((t) => [t._id, t.name]))}
+                value={testTypeId}
+                onValueChange={(v) => setTestTypeId(v ?? "")}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select a test type" />
                 </SelectTrigger>

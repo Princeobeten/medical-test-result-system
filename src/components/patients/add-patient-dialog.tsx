@@ -97,7 +97,11 @@ export function AddPatientDialog({ onCreated }: { onCreated: (patient: PatientDT
             </div>
             <div className="space-y-2">
               <Label>Gender</Label>
-              <Select value={gender} onValueChange={(v) => setValue("gender", v as FormValues["gender"])}>
+              <Select
+                items={{ male: "Male", female: "Female", other: "Other" }}
+                value={gender}
+                onValueChange={(v) => setValue("gender", v as FormValues["gender"])}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>

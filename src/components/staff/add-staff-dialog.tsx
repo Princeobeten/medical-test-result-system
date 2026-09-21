@@ -94,7 +94,11 @@ export function AddStaffDialog({ onCreated }: { onCreated: () => void }) {
           </div>
           <div className="space-y-2">
             <Label>Role</Label>
-            <Select value={role} onValueChange={(v) => setValue("role", v as FormValues["role"])}>
+            <Select
+              items={{ technologist: "Technologist", admin: "Admin" }}
+              value={role}
+              onValueChange={(v) => setValue("role", v as FormValues["role"])}
+            >
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>

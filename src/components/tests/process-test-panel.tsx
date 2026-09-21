@@ -177,6 +177,7 @@ export function ProcessTestPanel({ initialTest }: { initialTest: TestRecordDTO }
                     name={`results.${index}.flag` as const}
                     render={({ field: flagField }) => (
                       <Select
+                        items={{ normal: "Normal", low: "Low", high: "High", critical: "Critical" }}
                         disabled={readOnly}
                         value={flagField.value}
                         onValueChange={flagField.onChange}
